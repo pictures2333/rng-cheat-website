@@ -1,0 +1,113 @@
+.body{
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.head {
+    background-color: rgb(0, 146, 0);
+    display: flex;
+}
+.head .title {
+    background-color: white;
+    color: lightgreen;
+    text-decoration: none;
+    font-size: 40px;
+    padding-left: 20px;
+    padding-right: 60px;
+    margin-right: 40px;
+    font-weight: bold;
+}
+.head .btnc {
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.head .btnc #github {
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    height: fit-content;
+    color: white;
+    font-family: sans-serif;
+}
+.head .btnc .corn {
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    height: fit-content;
+    color: white;
+    font-family: sans-serif;
+    background-color: white;
+    border-radius: 5px;
+}
+.smallhead{
+    font-family: sans-serif;
+    background-color: green;
+    color: white;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.s-e-c {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.s-e-c .form{
+    text-align: center;
+    align-items: center;
+}
+.s-e-c .form .c1 {
+    text-align: center;
+    align-items: center;
+}
+.s-e-c .form .c1 .text{
+    font-size: 25px;
+    margin: 10px;
+}
+.s-e-c .form .c1 #input{
+    width: 120px;
+    height: 40px;
+}
+
+.s-e-c .form .c2 {
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 25px;
+}
+.s-e-c .form .c2 #fLabel {
+    margin-left: 10px;
+}
+
+.s-e-c .form .c3, .c4 {
+    align-items: center;
+    margin-bottom: 50px;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.s-e-c .form #subBtn {
+    margin-top: 10px;
+}
+
+.show {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+.show #errorwin{
+    font-size: 18px;
+}

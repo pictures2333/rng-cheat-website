@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨機作籤器</title>
+    
+    <meta name="og:title" content="隨機作籤器">
+    <meta name="og.description" content="亂數產生器。可選擇產生亂數是否能重複，是否排除某些數字，或是...作籤。">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+</head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(()=>{
+        $("#geneForm").on("submit", function (event) {
+            event.preventDefault();
+            
+            $.ajax({
+                url: `generator?${$(this).serialize()}`,
+                type: "GET",
+                success: function (response) {
+                    $(".show").html(response)
+                },
+                error: function () {
+                    $(".show").html('<div class="alert alert-danger" role="alert" id="errorwin">500 Internal Server Error: 可能是錯誤的參數導致</div>')
+                }
+            })
+        })
+    })
+</script>
+
+<body>
+    <div class="sticky-top">
+        <div class="head">
+            <a class="title">隨機作籤器</a>
+            <div class="btnc"><a id="github" href="https://github.com/pictures2333/rng-cheat-website">Github</a></div>
+            <div class="btnc"><a id="github" href="https://pictures2333.github.io/whistle">吱持我</a></div>
+            <div class="btnc"><a class="corn" href="https://youtube.com/@shirakamifubuki">🌽</a></div>
+            <div class="btnc"><a id="github" href="https://www.youtube.com/watch?v=AhEuY94DPiE">Some Surprise</a></div>
+        </div>
+        <div class="smallhead">隨機產生數字，可設定號碼是否重複、是否排除某些號碼，或是...作籤：）</div>
+    </div>
+
+    <div class="s-e-c">
+        <form class="form" id="geneForm">
+            <div class="d-flex c1">
+                <label class="text">從</label>
+                <input type="number" class="form-control" id="input" placeholder="Ex: 01" name="start" required id="fStart">
+                <label class="text">到</label>
+                <input type="number" class="form-control" id="input" placeholder="Ex: 37" name="end" required id="fEnd">
+                <label class="text">之間 選</label>
+                <input type="number" class="form-control" id="input" placeholder="Ex: 05" name="count" required id="fCount">
+                <label class="text">個數字</label>
+            </div>
+
+            <div class="form-check form-switch d-flex c2">
+                <input class="form-check-input" type="checkbox" role="switch" id="fFlex" name="repeat">
+                <label class="form-check-label" id="fLabel">數字重複</label>
+            </div>
+
+            <div class="form-check form-switch d-flex c2">
+                <input class="form-check-input" type="checkbox" role="switch" id="fFlex" name="sort">
+                <label class="form-check-label" id="fLabel">由小到大排序</label>
+            </div>
+
+            <div class="mb-3 c3">
+                <label class="form-label">排除數字(限數字，請以空格分開數字，空白表不輸入，最大限制500字)</label>
+                <textarea class="form-control" id="exclude" rows="5" name="exclude" maxlength="500"></textarea>
+            </div>
+
+            <div class="mb-3 c4">
+                <label class="form-label">必定包含數字(限數字，請以空格分開數字，空白表不輸入，最大限制500字)<br>數目不得多於要求的數字個數</label>
+                <textarea class="form-control" id="include" rows="5" name="include" maxlength="500"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="subBtn">選號</button>
+        </form>
+    </div>
+
+    <div class="show">
+    </div>
+</body>
+</html>
