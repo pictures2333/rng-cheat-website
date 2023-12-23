@@ -9,17 +9,13 @@
     <meta name="og.description" content="亂數產生器。可選擇產生亂數是否能重複，是否排除某些數字，或是...作籤。">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <link rel="stylesheet" type="text/css" href="../static/main_mobile.css">
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script>
     $(document).ready(()=>{
-        const width = document.body.clientWidth;
-        if (width <= 550) {
-            document.location.href = '/m';
-        }
-
         $("#geneForm").on("submit", function (event) {
             event.preventDefault();
             
@@ -38,13 +34,14 @@
 </script>
 
 <body>
-    <div class="sticky-top">
-        <div class="head">
-            <a class="title">隨機作籤器</a>
+    <div class="sticky-top headboxa">
+        <a class="title" data-bs-toggle="collapse" href="#headbox" role="button">隨機作籤器</a>
+        <a class="title-des" data-bs-toggle="collapse" href="#headbox" role="button">(點擊召喚選單)</a>
+        <div class="collapse" id="headbox">
             <div class="btnc"><a id="github" href="https://github.com/pictures2333/rng-cheat-website">Github</a></div>
             <div class="btnc"><a id="github" href="https://pictures2333.github.io/whistle">吱持我</a></div>
-            <div class="btnc"><a class="corn" href="https://youtube.com/@shirakamifubuki" title="白上吹雪最可愛了">🌽</a></div>
-            <div class="btnc"><a id="github" href="https://www.bilibili.com/video/BV1Hx411V7n9" title="三无翻唱的版本超赞">病名為跑版</a></div>
+            <div class="btnc"><a class="corn" href="https://youtube.com/@shirakamifubuki">🌽</a></div>
+            <div class="btnc"><a id="github" href="https://www.youtube.com/watch?v=AhEuY94DPiE">Some Surprise</a></div>
         </div>
         <div class="smallhead">隨機產生數字，可設定號碼是否重複、是否排除某些號碼，或是...作籤：）</div>
     </div>
@@ -56,6 +53,8 @@
                 <input type="number" class="form-control" id="input" placeholder="Ex: 01" name="start" required id="fStart">
                 <label class="text">到</label>
                 <input type="number" class="form-control" id="input" placeholder="Ex: 37" name="end" required id="fEnd">
+            </div>
+            <div class="d-flex c1">
                 <label class="text">之間 選</label>
                 <input type="number" class="form-control" id="input" placeholder="Ex: 05" name="count" required id="fCount">
                 <label class="text">個數字</label>

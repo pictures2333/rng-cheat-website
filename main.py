@@ -3,8 +3,9 @@ import random
 app = Flask(__name__)
 
 @app.route("/")
-def mainpage():
-    return render_template("main.html")
+def mainpage(): return render_template("main.html")
+@app.route("/m")
+def mainpage_mobile(): return render_template("main_mobile.html")
 
 @app.route("/generator")
 def generator():
@@ -23,8 +24,8 @@ def generator():
         elif (repeat == "on"): repeat = False # 可以重複
         else: return abort(500)
         # 檢查: 起始數字小於終止數字；數字範圍大於等於要求個數
-        if (start > end): return errorText.replace("<errorText>", "終止數字需比起始數字大")
-        if (abs(end-start)+1 < count and repeat): return errorText.replace("<errorText>", "數字範圍比要求的數字個數少")
+        if (start > end): return errorText.replace("<errorText>", '終止數字需比起始數字大 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.01 說明文件</a>')
+        if (abs(end-start)+1 < count and repeat): return errorText.replace("<errorText>", '數字範圍比要求的數字個數少 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.02 說明文件</a>')
 
         # 取得排除值
         exclude = request.args.get('exclude')
@@ -37,9 +38,9 @@ def generator():
         for i in excludeList: 
             if (i >= start and i <= end): exclude2.append(i)
         # 如果數字不能重複: 檢查扣完這些數字之後剩下的範圍會不會太小
-        if (abs(end-start)+1) - len(exclude2) < count and repeat == True: return errorText.replace("<errorText>", "數字範圍扣除要求排除的數字數目後小於要求數字個數")
+        if (abs(end-start)+1) - len(exclude2) < count and repeat == True: return errorText.replace("<errorText>", '數字範圍扣除要求排除的數字數目後小於要求數字個數 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.03 說明文件</a>')
         # 如果數字可以重複: 檢查排除列表會不會把整個範圍內的數字都排除掉
-        if len(exclude2) >= (abs(end-start)+1) and repeat == False: return errorText.replace("<errorText>", "數字範圍內的數字都被列入排除了")
+        if len(exclude2) >= (abs(end-start)+1) and repeat == False: return errorText.replace("<errorText>", '數字範圍內的數字都被列入排除了 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.04 說明文件</a>')
 
         # 取得必定包含值
         include = request.args.get('include')
@@ -49,10 +50,10 @@ def generator():
             else: return abort(500)
         # 檢查所有數字是不是都在範圍內、是否跟排除列表衝突
         for i in includeList:
-            if i > end or i < start: return errorText.replace("<errorText>", "必定包含數字超出數字範圍")
-            if len(exclude2) != 0 and i in exclude2: return errorText.replace("<errorText>", "必定包含數字和排除數字衝突")
+            if i > end or i < start: return errorText.replace("<errorText>", '必定包含數字超出數字範圍 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.05 說明文件</a>')
+            if len(exclude2) != 0 and i in exclude2: return errorText.replace("<errorText>", '必定包含數字和排除數字衝突 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.06 說明文件</a>')
         # 檢查必定列表是否比要求數字列表多
-        if len(includeList) > count: return errorText.replace("<errorText>", "必定包含數字超出要求數字個數")
+        if len(includeList) > count: return errorText.replace("<errorText>", '必定包含數字個數超出要求數字個數 <a id="des" href="https://github.com/pictures2333/rng-cheat-website/blob/master/errDocument.md">err.07 說明文件</a>')
         # 如果沒有爆掉: 直接添加必定值到最終產生變數表
         randomList = includeList
 
@@ -63,7 +64,7 @@ def generator():
             randomList.append(tRn)
         # 確認是否排序
         tfSort = request.args.get('sort')
-        if (tfSort == None): pass
+        if (tfSort == None): random.shuffle(randomList) # 加以打亂
         elif (tfSort == "on"): randomList.sort()
         else: return abort(500)
         # 開始組合字串

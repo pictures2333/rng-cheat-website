@@ -1,0 +1,136 @@
+.body{
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.headboxa {
+    display: flex;
+    flex-direction: column;
+}
+.headboxa .title {
+    background-color: rgb(0, 146, 0);
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 60px;
+    font-weight: bold;
+}
+.headboxa .title-des {
+    background-color: rgb(0, 146, 0);
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 60px;
+    font-weight: bold;
+}
+.headboxa .show, .collapsing {
+    background-color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 20px;
+}
+.headboxa .collapsing .btnc, .show .btnc {
+    justify-content: left;
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.headboxa .collapsing .btnc #github, .corn {
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    justify-content: left;
+}
+.headboxa .show .btnc #github, .corn {
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    justify-content: left;
+}
+.smallhead{
+    font-family: sans-serif;
+    background-color: green;
+    color: white;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    font-size: 15px;
+}
+
+.s-e-c {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.s-e-c .form{
+    text-align: center;
+    align-items: center;
+}
+.s-e-c .form .c1 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.s-e-c .form .c1 .text{
+    font-size: 18px;
+    margin: 5px;
+}
+.s-e-c .form .c1 #input{
+    width: 30%;
+    height: 30px;
+}
+
+.s-e-c .form .c2 {
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+.s-e-c .form .c2 #fLabel {
+    margin-left: 10px;
+}
+
+.s-e-c .form .c3, .c4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 18px;
+    margin-top: 40px;
+}
+.s-e-c .form .c3 .form-label, .c4 .form-label {
+    width: 85%;
+}
+.s-e-c .form .c3 textarea, .c4 textarea {
+    width: 85%;
+}
+
+.show {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 100px;
+}
+.show #errorwin{
+    font-size: 18px;
+}
+.show #errorwin #des{
+    font-size: 18px;
+    color: rgb(0, 136, 255);
+    text-decoration: baseline;
+}

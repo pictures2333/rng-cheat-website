@@ -105,14 +105,20 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    align-items: center;
     font-size: 30px;
     margin-bottom: 100px;
 }
 .show #errorwin{
     font-size: 18px;
 }
+.show #errorwin #des{
+    font-size: 18px;
+    color: rgb(0, 136, 255);
+    text-decoration: baseline;
+}
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
     .head {
         display: block;
     }
@@ -188,6 +194,6 @@
         width: 85%;
     }
     .s-e-c .form .c3 textarea, .c4 textarea {
-        width: 50%;
+        width: 70%;
     }
 }
